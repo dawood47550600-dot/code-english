@@ -1,0 +1,172 @@
+index.html
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>الإنجليزية للبرمجة</title>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background: #f1f5f9;
+    margin: 0;
+    color: #1e293b;
+}
+
+header {
+    background: #173b68;
+    color: white;
+    text-align: center;
+    padding: 25px 10px;
+}
+
+header h1 {
+    margin: 0 0 10px;
+}
+
+.container {
+    max-width: 650px;
+    margin: 20px auto;
+    padding: 15px;
+}
+
+.card {
+    background: white;
+    padding: 18px;
+    margin-bottom: 15px;
+    border-radius: 14px;
+    box-shadow: 0 3px 10px #00000010;
+}
+
+.word {
+    color: #1764b0;
+    font-size: 25px;
+    font-weight: bold;
+    direction: ltr;
+    text-align: left;
+}
+
+button {
+    background: #1764b0;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 9px;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 5px;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    color: #64748b;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>الإنجليزية للبرمجة 💻</h1>
+    <p>تعلّم الإنجليزية خطوة بخطوة</p>
+</header>
+
+<div class="container">
+
+    <div class="card">
+        <h2>مرحبًا بك في رحلتك التعليمية!</h2>
+        <p>تعلّم الكلمات الإنجليزية التي تحتاج إليها أثناء استخدام برنامج C++.</p>
+        <p>المستوى: مبتدئ</p>
+        <p>تقدّمك: <span id="progress">0</span>%</p>
+    </div>
+
+    <h2>الدرس الأول: الكلمات الأساسية</h2>
+
+    <div class="card">
+        <div class="word">Enter</div>
+        <p>المعنى: إدخال</p>
+        <p>النطق: إِنتر</p>
+        <p>مثال: Enter your name</p>
+        <p>أدخل اسمك</p>
+        <button onclick="speak('Enter')">🔊 استمع للنطق</button>
+    </div>
+
+    <div class="card">
+        <div class="word">Write</div>
+        <p>المعنى: اكتب</p>
+        <p>النطق: رايت</p>
+        <p>مثال: Write your code</p>
+        <p>اكتب الكود الخاص بك</p>
+        <button onclick="speak('Write')">🔊 استمع للنطق</button>
+    </div>
+
+    <div class="card">
+        <div class="word">Read</div>
+        <p>المعنى: اقرأ</p>
+        <p>النطق: ريد</p>
+        <p>مثال: Read the message</p>
+        <p>اقرأ الرسالة</p>
+        <button onclick="speak('Read')">🔊 استمع للنطق</button>
+    </div>
+
+    <div class="card">
+        <div class="word">Print</div>
+        <p>المعنى: اطبع</p>
+        <p>النطق: برِنت</p>
+        <p>مثال: Print the result</p>
+        <p>اطبع النتيجة</p>
+        <button onclick="speak('Print')">🔊 استمع للنطق</button>
+    </div>
+
+    <div class="card">
+        <div class="word">Run</div>
+        <p>المعنى: تشغيل</p>
+        <p>النطق: رَن</p>
+        <p>مثال: Run the program</p>
+        <p>شغّل البرنامج</p>
+        <button onclick="speak('Run')">🔊 استمع للنطق</button>
+    </div>
+
+    <div class="card">
+        <h2>اختبر معلوماتك 📝</h2>
+        <p>ما معنى الكلمة الإنجليزية Run؟</p>
+
+        <button onclick="checkAnswer(false)">كتابة</button>
+        <button onclick="checkAnswer(true)">تشغيل</button>
+        <button onclick="checkAnswer(false)">قراءة</button>
+
+        <p id="answer"></p>
+    </div>
+
+</div>
+
+<footer>
+    الإنجليزية للبرمجة | تعلّم كل يوم خطوة جديدة 🚀
+</footer>
+
+<script>
+function speak(word) {
+    const speech = new SpeechSynthesisUtterance(word);
+    speech.lang = "en-US";
+    speech.rate = 0.8;
+    speechSynthesis.speak(speech);
+}
+
+function checkAnswer(correct) {
+    const answer = document.getElementById("answer");
+
+    if (correct) {
+        answer.textContent = "أحسنت! إجابة صحيحة 🎉";
+        answer.style.color = "green";
+        document.getElementById("progress").textContent = "100";
+    } else {
+        answer.textContent = "حاول مرة أخرى، ركّز في معنى الكلمة.";
+        answer.style.color = "red";
+    }
+}
+</script>
+
+</body>
+</html>
